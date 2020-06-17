@@ -1,0 +1,12 @@
+[
+    {
+        "id": "0640579c-dd5d-4fda-bd9c-878aace5ce1e",
+        "products": ["ABCD", "XYZ"],
+        "discount": 0.5
+    },
+    {
+        "id": "0640579c-dd5d-4fda-bd9c-1998bd0446cd",
+        "products": ["ABCD", "DEF"],
+        "discount": 0.3
+    }
+]

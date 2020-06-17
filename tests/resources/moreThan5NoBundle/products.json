@@ -1,0 +1,26 @@
+[
+    {
+        "sku": "XYZ",
+        "price": 1.00
+    },
+    {
+        "sku": "ABC",
+        "price": 1.00
+    },
+    {
+        "sku": "DEF",
+        "price": 1.00
+    },
+    {
+        "sku": "GHI",
+        "price": 1.00
+    },
+    {
+        "sku": "JKL",
+        "price": 1.00
+    },
+    {
+        "sku": "MNO",
+        "price": 1.00
+    }
+]
