@@ -23,7 +23,6 @@ class Cart:
 
     def getDiscount(self):
         self.__findTheBundleWithMaxDiscount()
-        self.__sixPercentIfNoBundleAndMoreThanFive()
         self.__calculateDiscount()
         return self.__discount
 
@@ -40,11 +39,6 @@ class Cart:
 
         return all(product in self.__products for product in bundle_products)
 
-    def __sixPercentIfNoBundleAndMoreThanFive(self):
-        if self.__percentageDiscount == 0.0 and len(self.__products) > 5:
-            self.__percentageDiscount = 0.06
-            self.__bundle = self.__products
-
     def __calculateDiscount(self):
         for cart_product in self.__products:
             if cart_product in self.__productsAvailable.keys():
@@ -55,6 +49,12 @@ class Cart:
                     )
 
         self.__discount = round(self.__discount, 2)
+
+    def applyDefaultDiscount(self):
+        for cart_product in self.__products:
+            if cart_product in self.__productsAvailable.keys():
+                self.__discount += self.__productsAvailable[cart_product].price * 0.06
+        return self.__discount
 
     @staticmethod
     def fillCartAndComputeDiscount(
@@ -68,5 +68,8 @@ class Cart:
         cart.addProductsInCart(expectedProducts)
 
         discount = cart.getDiscount()
+
+        if discount == 0.0 and len(expectedProducts) > 5:
+            discount = cart.applyDefaultDiscount()
 
         return discount
